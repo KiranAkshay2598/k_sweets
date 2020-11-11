@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <form method="POST", action="{% url 'update-order'%}">
+
+            {% csrf_token %}
+
+            Customer Name<input type="text" name="customer_name"> <br>
+            Email<input type="text" name="email"> <br>
+            Address<input type="text" name="address"> <br>
+            Phone No<input type="text" name="phone_number"> <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

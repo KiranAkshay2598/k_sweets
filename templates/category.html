@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <h1>CATEGORY DETAILED VIEW</h1>
+    </head>
+    <body>
+        <li>
+        {% for en in products %}
+        <ol>
+        {{en.name}}
+        <form action="{%url 'add-item'%}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{en.id}}"/> 
+            Qty : <input type="number" name="quantity"/>
+            <input type="submit" value="Add to Order">
+        </form>
+        </ol>
+        {%endfor%}
+        <button><a style="text-decoration: none;" href="{%url 'update-order'%}">Checkout Order</a></button> 
+        </li>
+    </body>
+</html>

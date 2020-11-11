@@ -1,0 +1,16 @@
+<html>
+    <title>Kaviya Sweets</title>
+    <head>
+        <h1>KAVIYA SWEETS</h1>
+    </head>
+    <body>
+        
+        Categories :
+        <li>
+        {% for category in all_categories %}    
+            <!-- <ul>  {{category.name}}  </ul> -->
+            <ul> <a href="category?cat_name={{category.name}}"> {{category.name}} </a> </ul>
+        </li>
+        {% endfor %}
+    </body>
+</html>
