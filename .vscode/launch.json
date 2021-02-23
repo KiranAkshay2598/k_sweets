@@ -11,10 +11,10 @@
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
-                "192.168.0.105:8000"
+                "192.168.29.189:8000"
             ],
             "django": true,
-            "pythonPath": "/home/kiran/Documents/K_sweets/k_sweets/bin/python3.6"
+            "python": "/home/kiran/Documents/K_sweets/k_sweets/bin/python3.6"
         },
     ]
 }

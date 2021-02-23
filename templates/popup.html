@@ -1,0 +1,23 @@
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+        
+        <h4 class="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        <p>Your order has been placed successfully</p>
+        <br>
+        <p>If you'd like to make payment for the order you can proceed with the following button</p>
+        </div>
+        <!-- payment button div -->
+        <div style="padding-left:39%"> 
+            {% include 'pay.html' %}
+        </div>
+        <div class="modal-footer" style="padding-right: 30%;">
+            <a class="btn btn-default"  href="{% url 'home'%}">Back to home</a>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,3 +1,6 @@
+
+{% load static %}
+{% static "images" as baseurl %}
 <html>
     <head>
         <h1>CATEGORY DETAILED VIEW</h1>
@@ -12,6 +15,9 @@
             <input type="hidden" name="product_id" value="{{en.id}}"/> 
             Qty : <input type="number" name="quantity"/>
             <input type="submit" value="Add to Order">
+            {% if en.img %}
+            <img src="{{en.img.url}}"width="200"height="121" alt="">
+            {%endif%}
         </form>
         </ol>
         {%endfor%}
