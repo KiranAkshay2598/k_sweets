@@ -35,7 +35,7 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 <ul>
-                    {% if calling_page != "home" %}
+                    {% if calling_page != "home" and "checkout" %}
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     {% endif %}
                     <a href="{% url 'cart' %}">

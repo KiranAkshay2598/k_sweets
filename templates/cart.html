@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+    <title>kaviya sweets - Ecommerce Bootstrap 4 HTML Template</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -163,98 +163,12 @@
     <!-- End Main Top -->
 
     <!-- Start Main Top -->
-    <!-- <header class="main-header">
-        <! Start Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-            <div class="container">
-                <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                    <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo.png'%}" class="logo" alt=""></a>
-                </div>
-                <!-- End Header Navigation -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'about-us' %}">About Us</a></li>
-                        <li class="dropdown active">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                            <ul class="dropdown-menu">
-								<li><a href="{% url 'category' %}">Sidebar Shop</a></li>
-								<!-- <li><a href="shop-detail.html">Shop Detail</a></li> -->
-                                <li><a href="{% url 'cart' %}">Cart</a></li>
-                                <!-- <li><a href="{% url 'checkout' %}">Checkout</a></li> -->
-                                <!-- <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li> -->
-                            </ul>
-                        </li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li> -->
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-
-                <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="side-menu"><a href="#">
-						<i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
-							<p>My Cart</p>
-					</a></li>
-                    </ul>
-                </div>
-                <!-- End Atribute Navigation -->
-            </div>
-            <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <li class="cart-box">
-                    <ul class="cart-list">
-                        {% for cart_item in cart_items %}
-                        <li>
-                            <a href="#" class="photo"><img src= "{{ cart_item.product.img.url }}"  class="cart-thumb" alt="" /></a>
-                            <h6><a href="#"> {{cart_item.product.name}} </a></h6>
-                            <p id= "total_qty{{cart_item.id}}">
-                                <h4>Qty-{{cart_item.qty}}</h4> 
-                                <script>
-                                    getTotal("{{cart_item.product.price}}", "{{cart_item.qty}}", "total_qty{{cart_item.id}}");
-                                </script>    
-                            </p>  
-                        </li>
-                        {% endfor %}
-                        <!-- <li>
-                            <a href="#" class="photo"><img src="{% static 'images/img-pro-02.jpg'  %}" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="{% static 'images/img-pro-03.jpg'  %}" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li> -->
-                        <li class="total">
-                            <a href="{% url 'cart' %}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <strong> Total: </strong>
-                            <span id = 'bigtotal' class="float-right">  
-                                <script>
-                                    setBigTotal()
-                                </script>
-                            </span>
-                        </li>
-                    </ul>
-                </li>
-            </div>
-            <!-- End Side Menu -->
-        </nav>
-        <!-- End Navigation -->
-    </header>
+  
     <!-- End Main Top -->
+
+    {% with "checkout" as calling_page %}
+        {% include 'header.html' %}
+    {% endwith %}
 
     <!-- Start Top Search -->
     {% include "search.html" %}
