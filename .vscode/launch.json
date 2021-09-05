@@ -5,13 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
-                "192.168.29.189:8000"
+                "192.168.29.188:8000"
             ],
             "django": true,
             "python": "/home/kiran/Documents/K_sweets/k_sweets/bin/python3.6"
