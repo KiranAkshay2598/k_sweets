@@ -10,3 +10,9 @@ pass.txt
 assets/
 *.log
 
+# Virtual Environments
+venv/
+.venv/
+env/
+
+
