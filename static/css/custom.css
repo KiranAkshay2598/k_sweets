@@ -21,3 +21,52 @@
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
   }
+
+/* Image Uniformity Fixes */
+.shop-cat-box {
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.shop-cat-box img {
+    width: 100%;
+    /* removed height */
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.shop-cat-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Image Uniformity Fixes - Force Override */
+.shop-cat-box .img-fluid {
+  display: block;
+  width: 100%;
+  height: auto; /* Allow height to adjust naturally */
+  object-fit: cover;
+}
+
+.products-single .box-img-hover {
+    height: 250px !important; /* Fixed height for product container */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products-single .box-img-hover img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/** ADD YOUR AWESOME CODES HERE **/

@@ -1,15 +1,20 @@
-import telegram
+from telegram import Bot
 import razorpay
+import asyncio
+from django.conf import settings
 from .models import Order
 
 def send_telegram_message(msg):
-    token = '1476623880:AAGCjhLjuSzDBym_j1zgZKIpFkMlDDAdX7Q'
-    chat_id = 1426070442
-    bot = telegram.Bot(token=token)
-    bot.sendMessage(chat_id=chat_id, text=msg)
+    token = settings.TELEGRAM_BOT_TOKEN
+    chat_id = settings.TELEGRAM_CHAT_ID
+    bot = Bot(token=token)
+    try:
+        asyncio.run(bot.send_message(chat_id=chat_id, text=msg))
+    except Exception as e:
+        pass
 
 def razorpay_gateway(amount):
-    client = razorpay.Client(auth=("rzp_test_BzpuQZbbNkr9jv","McdtiUVkfbSjBybiNhgR12pk"))
+    client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
     order = client.order.create(dict(amount=amount, currency='INR'))
     return order["id"]
 

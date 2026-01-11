@@ -21,7 +21,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ks_app.urls')),
-    # path('getcookie', showcookie),
-    # path('setcookie', setcookie)
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

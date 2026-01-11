@@ -14,7 +14,7 @@
          width: 100%;
     }
      .navbar-light .navbar-toggler{
-         border-color: #b0b435;
+         border-color: #c19a6b;
          color: #010101;
          border-radius: 0px;
          margin-right: 7px;
@@ -49,7 +49,7 @@
          font-size: 16px;
     }
      .product-item-filter p{
-         float: none;
+         /* float: none; */
     }
      .product-item-filter{
          margin: 30px 0px;
@@ -79,7 +79,7 @@
          width: 80%;
     }
      .navbar-light .navbar-toggler{
-         border-color: #b0b435;
+         border-color: #c19a6b;
          color: #010101;
          border-radius: 0px;
          margin-right: 7px;
@@ -139,7 +139,7 @@
          font-size: 16px;
     }
      nav.navbar.bootsnav ul.nav li.dropdown ul.dropdown-menu > li > a:hover{
-         color: #b0b435;
+         color: #c19a6b;
     }
      .hover-team{
          margin-bottom: 30px;
@@ -151,7 +151,7 @@
          width: 100%;
     }
      .product-item-filter p{
-         float: none;
+         /* float: none; */
     }
      .product-item-filter{
          margin: 30px 0px;
@@ -204,129 +204,4 @@
 		margin-bottom: 30px;
 	}
 }
- @media only screen and (min-width: 280px) and (max-width: 599px) {
-     .navbar-light .navbar-toggler{
-         border-color: #b0b435;
-         color: #010101;
-         border-radius: 0px;
-         margin-right: 7px;
-         padding-top: 6px;
-		 padding-bottom: 6px;
-    }
-     nav.navbar.bootsnav ul.nav > li > a{
-         padding: 5px 15px;
-    }
-     nav.navbar.bootsnav .navbar-nav{
-         padding: 0px;
-         margin: 0px;
-    }
-     .cover-slides h1{
-         font-size: 28px;
-    }
-     .cover-slides p{
-         font-size: 16px;
-    }
-     .cover-slides p a{
-         font-size: 18px;
-    }
-     .offer-box li i{
-         font-size: 11px;
-    }
-     .offer-box li{
-         font-size: 9px;
-    }
-     .custom-select-box{
-         display: none;
-    }
-     .right-phone-box, .our-link{
-         float: none;
-         text-align: center;
-    }
-.     .filter-button-group button{
-         font-size: 14px;
-         padding: 5px 18px;
-		 margin-bottom: 3px;
-    }
-     .title-blog h3{
-         font-size: 16px;
-    }
-     .footer-widget{
-         margin-bottom: 30px;
-    }
-     .footer-link{
-         margin-bottom: 30px;
-    }
-     nav.navbar.bootsnav ul.nav li.dropdown ul.dropdown-menu{
-         position: initial !important;
-         top: 0px;
-    }
-     .col-menu .title{
-         font-size: 16px;
-    }
-     nav.navbar.bootsnav ul.nav li.dropdown ul.dropdown-menu > li > a:hover{
-         color: #b0b435;
-    }
-     .hover-team{
-         margin-bottom: 30px;
-    }
-     .product-categori{
-         margin-bottom: 30px;
-    }
-     .product-item-filter .toolbar-sorter-right{
-         width: 100%;
-    }
-     .product-item-filter p{
-         float: none;
-    }
-     .product-item-filter{
-         margin: 30px 0px;
-    }
-     .product-categorie-box{
-         margin: 30px 0px;
-    }
-     .toolbar-sorter-right .bootstrap-select.form-control:not([class*="col-"]){
-         width: 70%;
-    }
-     .why-text.full-width h4{
-         font-size: 20px;
-    }
-     .coupon-box{
-         margin-bottom: 30px;
-    }
-     .update-box input[type="submit"]{
-         margin-right: 0px;
-    }
-     .single-product-slider{
-         margin-bottom: 30px;
-    }
-     .single-product-details h2{
-         font-size: 18px;
-    }
-     .add-comp a{
-         margin-bottom: 30px;
-    }
-     .add-to-btn .share-bar{
-         float: none;
-    }
-     .contact-info-left{
-         margin-bottom: 30px;
-    }
-     .right-phone-box{
-         display: none;
-    }
-	.text-slid-box{
-		display: none;
-	}
-	.login-box{
-		float: none;
-		text-align: center;
-		margin: 0 auto;
-	}
-	.offer-box-products{
-		margin-bottom: 30px;
-	}
-	.side-menu p{
-		display: none;
-	}
-}
- 
+ @media only screen and

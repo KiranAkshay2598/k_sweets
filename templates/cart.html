@@ -12,28 +12,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>kaviya sweets - Ecommerce Bootstrap 4 HTML Template</title>
+    <title>The Desi Pantry</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/the_desi_pantry_logo.png' %}" type="image/png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/desi-style.css' %}?v=2">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=2">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}?v=2">
 
-    <!--[if lt IE 9]>
-      <script src="{% static 'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'  %}"></script>
-      <script src="{% static 'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'  %}"></script>
-    <![endif]-->
     <style>
         #overlay {
             position: fixed;
@@ -44,8 +40,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 2;
+            background-color: rgba(0,0,0,0.75);
+            transition: 0.5s; 
+            z-index: 999;
             cursor: pointer;
           }
           
@@ -63,8 +60,8 @@
     <script>
         var total=0
         function getTotal(p, q, id){
-            console.log("calculating");
-            console.log(id);
+            // console.log("calculating");
+            // console.log(id);
             var tag = document.getElementById(id);
             tag.innerHTML = p * q;
             total = total+(p*q)
@@ -74,18 +71,16 @@
             bigtotal.innerHTML = total + ' R.s';
         }
         function RemoveCartItem(cartitem_id){
-            console.log(cartitem_id + "is the cartitem id");
-            id_to_send={
-                'remove_button': true,
-                'cartitem_id':cartitem_id,
-                'csrfmiddlewaretoken': '{{csrf_token}}'
+            // console.log(cartitem_id + "is the cartitem id");
+            data = {
+                    'cartitem_id':cartitem_id,
+                    'remove_button':'remove_button',
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
             }
-            $.post(url="{% url 'cart' %}", data=id_to_send, function(data, status){
-                console.log(status);
-                if(status=="success")
-                {
-                    $('#' + cartitem_id).hide(); 
-                }
+            $.post(url = "{% url 'cart' %}", data, function(data, status){
+                // console.log(status);
+                // on()
+                location.reload();
             });
         }
         
@@ -97,93 +92,21 @@
         <div id="text">Updated Cart !</div>
       </div>
     <!-- Start Main Top -->
-    <!-- <div class="main-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="custom-select-box">
-                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-							<option>¥ JPY</option>
-							<option>$ USD</option>
-							<option>€ EUR</option>
-						</select>
-                    </div>
-                    <div class="right-phone-box">
-                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
-                    </div>
-                    <div class="our-link">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
-                            <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
-                            <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="login-box">
-						<select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-							<option>Register Here</option>
-							<option>Sign In</option>
-						</select>
-					</div>
-                    <div class="text-slid-box">
-                        <div id="offer-box" class="carouselTicker">
-                            <ul class="offer-box">
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT80
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT30
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now 
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- End Main Top -->
-
-    <!-- Start Main Top -->
-  
-    <!-- End Main Top -->
-
     {% with "checkout" as calling_page %}
         {% include 'header.html' %}
     {% endwith %}
+    <!-- End Main Top -->
 
     <!-- Start Top Search -->
     {% include "search.html" %}
     <!-- End Top Search -->
 
     <!-- Start All Title Box -->
-    <div class="all-title-box">
+    <div class="all-title-box" style="background: url('{% static 'images/butter_muruku_carousel.jpg' %}') no-repeat center center; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Cart</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active">Cart</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -213,7 +136,11 @@
                                 <tr id='{{cart_item.id}}'>
                                     <td class="thumbnail-img">
                                         <a href="#">
+                                    {% if cart_item.product.img %}
 									<img class="img-fluid" src="{{ cart_item.product.img.url }}" alt="" />
+                                    {% else %}
+                                    <img class="img-fluid" src="{% static 'images/the_desi_pantry_logo.png' %}" alt="No Image" />
+                                    {% endif %}
 								</a>
                                     </td>
                                     <td class="name-pr">
@@ -224,7 +151,7 @@
                                     <td class="price-pr">
                                         <p>{{cart_item.product.price}}</p>
                                     </td>
-                                    <td class="quantity-box"><input name="qtybox" id="qtybox{{cart_item.id}}" type="number" size="4" value="{{cart_item.qty}}" min="0" step="1" class="c-input-text qty text"></td>
+                                    <td class="quantity-box"><input name="qtybox" id="qtybox{{cart_item.id}}" type="number" size="4" value="{{cart_item.qty}}" min="0" step="1" class="c-input-text qty text qty-box"></td>
                                     <td class="total-pr">
                                         <p id="total{{cart_item.id}}">
                                             <script>
@@ -239,54 +166,6 @@
                                     </td>
                                 </tr>
                                 {%endfor%}
-                                <!-- <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="{% static 'images/img-pro-02.jpg'  %}" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 60.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="{% static 'images/img-pro-03.jpg'  %}" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 30.0</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
-                                    <td class="total-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="#">
-									<i class="fas fa-times"></i>
-								</a>
-                                    </td>
-                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -294,59 +173,28 @@
             </div>
 
             <div class="row my-5">
-                <!-- <div class="col-lg-6 col-sm-6">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-theme" type="button">Apply Coupon</button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                {% if cart_items %}
                 <div class="col-lg-6 col-sm-6">
                     <div class="update-box">
                         <input value="Update Cart" type="submit" id="updatebtn">
-                        <!-- <button>Update Cart</button> -->
                         <div class="col-12 d-flex shopping-box"><a href="{% url 'update-order' %}" class="ml-auto btn hvr-hover">Checkout</a> </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="update-box">
+                        <h3>Your cart is empty</h3>
+                        <p>Please add items to move to the checkout.</p>
+                        <a href="{% url 'category' %}" class="btn hvr-hover" style="color: white;">Start Shopping</a>
+                    </div>
+                </div>
+                {% endif %}
             </div>
 
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
                 <div class="col-lg-4 col-sm-12">
-                    <!-- <div class="order-box">
-                        <h3>Order summary</h3>
-                        <div class="d-flex">
-                            <h4>Sub Total</h4>
-                            <div class="ml-auto font-weight-bold"> $ 130 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 40 </div>
-                        </div>
-                        <hr class="my-1">
-                        <div class="d-flex">
-                            <h4>Coupon Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 10 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Tax</h4>
-                            <div class="ml-auto font-weight-bold"> $ 2 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Shipping Cost</h4>
-                            <div class="ml-auto font-weight-bold"> Free </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex gr-total">
-                            <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ 388 </div>
-                        </div>
-                        <hr> </div> -->
                 </div>
-                <!-- <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">Checkout</a> </div> -->
             </div>
 
         </div>
@@ -354,90 +202,6 @@
     <!-- End Cart -->
 
     <!-- Start Instagram Feed  -->
-    <!-- <div class="instagram-box">
-        <div class="main-instagram owl-carousel owl-theme">
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-01.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-02.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-03.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-04.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-05.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-06.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-07.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-08.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-09.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-05.jpg'  %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <!-- End Instagram Feed  -->
 
 
@@ -445,85 +209,36 @@
     <footer>
         <div class="footer-main">
             <div class="container">
-				<!-- <div class="row">
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-top-box">
-							<h3>Business Time</h3>
-							<ul class="list-time">
-								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-top-box">
-							<h3>Newsletter</h3>
-							<form class="newsletter-box">
-								<div class="form-group">
-									<input class="" type="email" name="Email" placeholder="Email Address*" />
-									<i class="fa fa-envelope"></i>
-								</div>
-								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-top-box">
-							<h3>Social Media</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<ul>
-                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                            </ul>
-						</div>
-					</div>
-				</div>
-				<hr> -->
+				<hr>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
-                            <h4>About Freshshop</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                            <h4>About The Desi Pantry</h4>
+                            <p>Authentic Indian sweets and savory delights, made with traditional recipes and love. Experience the taste of home in every bite.</p> 
+							<p>We are dedicated to bringing you the finest quality treats for every occasion.</p> 							
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12" style="left: 5%;">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
-							<h3>Business Time</h3>
+							<h4>Business Time</h4>
 							<ul class="list-time">
 								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
 							</ul>
 						</div>
 					</div>
-                    <!-- <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-link">
-                            <h4>Information</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Our Sitemap</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                            </ul>
-                        </div>
-                    </div> -->
+                
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link-contact">
                             <h4>Contact Us</h4>
                             <ul>
                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: 123 Sweet Street, <br>Chennai,<br> India 600001 </p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+919876543210">+91 987 654 3210</a></p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:info@thedesipantry.com">info@thedesipantry.com</a></p>
                                 </li>
                             </ul>
                         </div>
@@ -536,8 +251,7 @@
 
     <!-- Start copyright  -->
     <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-            <a href="https://html.design/">html design</a></p>
+        <p class="footer-company">All Rights Reserved. &copy; 2024 <a href="#">The Desi Pantry</a></p>
     </div>
     <!-- End copyright  -->
 
@@ -550,34 +264,25 @@
     <script>
         $(document).ready(function(){
           $("#updatebtn").click(function(){
-            var qtyboxes = $("[name='qtybox']");
-            var data_to_send = {
-                'csrfmiddlewaretoken':"{{csrf_token}}"
-                };
-            for (i in qtyboxes){
-                let id = qtyboxes[i].id;
-                let qty = qtyboxes[i].value;
-                data_to_send[id] = qty;
+            // console.log("button clikedd ");
+            data_send = {
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
             }
             
-            console.log("button clikedd ");
-            $.post(url="{% url 'cart' %}", data=data_to_send, function(data, status){
-                console.log(status);
-                if (status == 'success'){
-                    on();
-                    for (var cart_item_id in data){
-                        console.log(cart_item_id, data[cart_item_id]);
-                        var totalbox = document.getElementById('total'+ cart_item_id.toString())
-                        totalbox.innerHTML = data[cart_item_id];
-                    }
-                }
-                console.log(data);
+            $(".qty-box").each(function(){
+                data_send[this.id] = this.value;
             });
+            // console.log(data_send);
+            on(); // Optimistic update: Show success message immediately
 
-
-
-            
-
+            $.post(url="{% url 'cart' %}", data=data_send, function(data, status){
+                // console.log(status);
+                // console.log(data);
+                for (cart_item_id in data){
+                    // console.log(cart_item_id, data[cart_item_id]);
+                    $('#total'+cart_item_id).text(data[cart_item_id]);
+                }
+            }); 
           });
         });
         function on() {
@@ -599,7 +304,6 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/baguetteBox.min.js' %}"></script>
     <script src="{% static 'js/form-validator.min.js' %}"></script>
-    <script src="{% static 'js/contact-form-script.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     

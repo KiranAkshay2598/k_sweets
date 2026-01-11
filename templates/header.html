@@ -9,25 +9,19 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" class="logo" alt=""></a>
+                <a class="navbar-brand" href="{% url 'home' %}" style="display: flex; align-items: center;">
+                    <img src="{% static 'images/the_desi_pantry_logo.png' %}" class="logo" alt="The Desi Pantry" style="height: 80px; width: auto; margin-right: 10px;">
+                    <span style="font-family: 'Great Vibes', cursive; font-size: 38px; font-weight: 700; color: #c19a6b; letter-spacing: 1px;">The Desi Pantry</span>
+                </a>
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about-us' %}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'category' %}">Shop</a></li>
-                    <!-- <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'category' %}">Sidebar Shop</a></li>
-                            <li><a href="{% url 'cart' %}">Cart</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="nav-item"><a class="nav-link" href="{% static 'gallery.html' %}">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% static 'contact-us.html' %}">Contact Us</a></li> -->
+                    <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'shop-detail' %}active{% endif %}"><a class="nav-link" href="{% url 'category' %}">Shop</a></li>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'about-us' %}active{% endif %}"><a class="nav-link" href="{% url 'about-us' %}">About Us</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -35,44 +29,18 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 <ul>
-                    {% if calling_page != "home" and "checkout" %}
+                    {% if calling_page != 'home' and calling_page != 'checkout' %}
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     {% endif %}
-                    <a href="{% url 'cart' %}">
-                    <i style="padding-top: 30%;" class="fa fa-shopping-bag"></i>
-                    My Cart</a>
+                    <li class="cart-icon {% if request.resolver_match.url_name == 'cart' or request.resolver_match.url_name == 'checkout' %}active{% endif %}"> 
+                        <a href="{% url 'cart' %}">
+                            <i class="fa fa-shopping-bag"></i> My Cart
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- End Atribute Navigation -->
         </div>
-        <!-- Start Side Menu -->
-        <div class="side">
-            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-            <li class="cart-box">
-                <ul class="cart-list">
-                    <li>
-                        <a href="#" class="photo"><img src="{% static 'images/img-pro-01.jpg' %}" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Delica omtantur </a></h6>
-                        <p>1x - <span class="price">$80.00</span></p>
-                    </li>
-                    <li>
-                        <a href="#" class="photo"><img src="{% static 'images/img-pro-02.jpg' %}" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Omnes ocurreret</a></h6>
-                        <p>1x - <span class="price">$60.00</span></p>
-                    </li>
-                    <li>
-                        <a href="#" class="photo"><img src="{% static 'images/img-pro-03.jpg' %}" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Agam facilisis</a></h6>
-                        <p>1x - <span class="price">$40.00</span></p>
-                    </li>
-                    <li class="total">
-                        <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                        <span class="float-right"><strong>Total</strong>: $180.00</span>
-                    </li>
-                </ul>
-            </li>
-        </div>
-        <!-- End Side Menu -->
     </nav>
     <!-- End Navigation -->
 </header>
