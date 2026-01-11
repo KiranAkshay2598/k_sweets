@@ -51,6 +51,13 @@
             biggertotal.innerHTML = total + ' R.s';
         }
         function checkoutform(){
+            // Disable button to prevent double-submit
+            var btn = document.getElementById('placeorder');
+            if(btn) {
+                btn.disabled = true;
+                btn.innerHTML = "Processing...";
+            }
+
             data_to_send={
                 'customer_name': document.getElementById('customer_name').value,
                 'phone_number':document.getElementById('phone_number').value,

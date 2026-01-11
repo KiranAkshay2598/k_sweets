@@ -2,7 +2,7 @@ from django.urls import path
 from ks_app import views
 
 urlpatterns = [
-    path('home',views.HomeView.as_view(), name='home'),
+    path('',views.HomeView.as_view(), name='home'),
     path('category',views.CategoryView.as_view(), name='category'),
     path('update-order',views.CheckoutOrder.as_view(), name='update-order'),
     path('add-item', views.AddItemToOrder.as_view(), name='add-item'),
