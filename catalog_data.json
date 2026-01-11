@@ -4,7 +4,7 @@
     "pk": 13,
     "fields": {
         "name": "South Indian Sweets",
-        "img": "fixtures/images/south-indian-sweets.jpg"
+        "img": "pics/south-indian-sweets.jpg"
     }
 },
 {
@@ -12,7 +12,7 @@
     "pk": 14,
     "fields": {
         "name": "North Indian Sweets",
-        "img": "fixtures/images/north-indian-sweets.jpg"
+        "img": "pics/north-indian-sweets.jpg"
     }
 },
 {
@@ -20,7 +20,7 @@
     "pk": 15,
     "fields": {
         "name": "Savories",
-        "img": "fixtures/images/savories.jpg"
+        "img": "pics/savories.jpg"
     }
 },
 {
@@ -30,7 +30,7 @@
         "name": "Mysore Pak",
         "unit": "1 Kg Box",
         "price": 580.0,
-        "img": "fixtures/images/mysore-pak.jpg",
+        "img": "pics/mysore-pak.jpg",
         "description": "Classic ghee-laden sweet from Mysore.",
         "category": 13
     }
@@ -42,7 +42,7 @@
         "name": "Adhirasam",
         "unit": "1 Kg Box",
         "price": 300.0,
-        "img": "fixtures/images/adhirasam.jpg",
+        "img": "pics/adhirasam.jpg",
         "description": "Traditional jaggery and rice flour doughnut.",
         "category": 13
     }
@@ -54,7 +54,7 @@
         "name": "Rava Laddu",
         "unit": "1 Kg Box",
         "price": 360.0,
-        "img": "fixtures/images/rava-laddu.jpg",
+        "img": "pics/rava-laddu.jpg",
         "description": "Semolina balls with coconut and ghee.",
         "category": 13
     }
@@ -66,7 +66,7 @@
         "name": "Peanut Burfi",
         "unit": "1 Kg Box",
         "price": 340.0,
-        "img": "fixtures/images/peanut-burfi.jpg",
+        "img": "pics/peanut-burfi.jpg",
         "description": "Sweet gram flour balls.",
         "category": 13
     }
@@ -78,7 +78,7 @@
         "name": "Gulab Jamun",
         "unit": "1 Kg Box",
         "price": 420.0,
-        "img": "fixtures/images/gulab-jamun.jpg",
+        "img": "pics/gulab-jamun.jpg",
         "description": "Fried milk solids soaked in sugar syrup.",
         "category": 14
     }
@@ -90,7 +90,7 @@
         "name": "Rasgulla",
         "unit": "1 Kg Box",
         "price": 380.0,
-        "img": "fixtures/images/rasgulla.jpg",
+        "img": "pics/rasgulla.jpg",
         "description": "Spongy cottage cheese balls in syrup.",
         "category": 14
     }
@@ -102,7 +102,7 @@
         "name": "Kaju Katli",
         "unit": "1 Kg Box",
         "price": 850.0,
-        "img": "fixtures/images/kaju-katli.jpg",
+        "img": "pics/kaju-katli.jpg",
         "description": "Rich diamond-shaped cashew fudge.",
         "category": 14
     }
@@ -114,7 +114,7 @@
         "name": "Jalebi",
         "unit": "1 Kg Box",
         "price": 320.0,
-        "img": "fixtures/images/jalebi.jpg",
+        "img": "pics/jalebi.jpg",
         "description": "Crispy fried spirals soaked in syrup.",
         "category": 14
     }
@@ -126,7 +126,7 @@
         "name": "Butter Murukku",
         "unit": "500 gm Pack",
         "price": 300.0,
-        "img": "fixtures/images/butter-murukku.jpg",
+        "img": "pics/butter-murukku.jpg",
         "description": "Crunchy rice flour chakli with butter.",
         "category": 15
     }
@@ -138,7 +138,7 @@
         "name": "Madras Mixture",
         "unit": "500 gm Pack",
         "price": 320.0,
-        "img": "fixtures/images/madras-mixture.jpg",
+        "img": "pics/madras-mixture.jpg",
         "description": "Spicy mix of peanuts, sev, and boondi.",
         "category": 15
     }
@@ -150,7 +150,7 @@
         "name": "Plantain Chips",
         "unit": "250 gm Pack",
         "price": 300.0,
-        "img": "fixtures/images/plantain-chips.jpg",
+        "img": "pics/plantain-chips.jpg",
         "description": "Spicy thick gram flour noodles.",
         "category": 15
     }
@@ -162,7 +162,7 @@
         "name": "Ribbon Pakoda",
         "unit": "500 gm Pack",
         "price": 300.0,
-        "img": "fixtures/images/ribbon-pakoda.jpg",
+        "img": "pics/ribbon-pakoda.jpg",
         "description": "Crispy ribbon-shaped savory snack.",
         "category": 15
     }

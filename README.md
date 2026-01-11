@@ -86,16 +86,16 @@ python manage.py collectstatic
 *(Type `yes` if prompted)*
 
 ### 7. Load Demo Data (Optional)
-I have provided a fixture file containing sample categories and products (images included in `fixtures/images`). This allows you to test the website immediately without manual data entry.
+I have provided a fixture file with sample products and a custom command to automatically load data and restore images.
 
-**Note:** You are free to create your own data via the Django Admin panel, but this command gives you a head start.
+**Note:** You can always create your own data manually via the Django Admin panel, but this command gives you a head start for testing.
 
 ```bash
-# Update the database with seed data
-python manage.py loaddata catalog_data.json
+# Loads database entries AND copies images from fixtures to media/
+python manage.py load_catalog
 ```
 
-_This will verify that the media is correctly mapped from the `fixtures/` directory._
+_This command handles everything: loading `catalog_data.json` and populating `media/pics/`._
 
 ### 8. Create Superuser (Admin Access)
 To access the admin panel and manage orders/products:
